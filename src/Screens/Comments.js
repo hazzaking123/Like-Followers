@@ -4,7 +4,7 @@ import styles from './styles/FollowerStyles';
 import { Icons } from "../Utils/IconManager";
 import Header from '../Components/Header';
 
-export default class Follower extends Component {
+export default class Comments extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -18,18 +18,18 @@ export default class Follower extends Component {
     render() {
         return (
             <View style={styles.MAINVIW}>
-                <Header title={"Follower"} backPress={() => this.props.navigation.goBack()} coin={this.state.data.follower_coin} />
+                <Header title={"Comments"} backPress={() => this.props.navigation.goBack()} coin={this.state.data.follower_coin} />
                 <View style={styles.VIW2}>
                     <View style={styles.VIW12}>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate("GetFollower")}>
-                            <Image style={styles.IMG4} source={Icons.get_follower} />
-                            <Text style={styles.TXT55}>Get Followers</Text>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate("GetComments")}>
+                            <Image style={styles.IMG4} source={Icons.comment} />
+                            <Text style={styles.TXT55}>Get Comments</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={styles.VIW12}>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate("FollowerList")}>
-                            <Image style={styles.IMG4} source={Icons.follower_list} />
-                            <Text style={styles.TXT55}>Followers List</Text>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate("Comments")}>
+                            <Image style={styles.IMG4} source={Icons.CommentList} />
+                            <Text style={styles.TXT55}>Comments List</Text>
                         </TouchableOpacity>
                     </View>
                 </View>

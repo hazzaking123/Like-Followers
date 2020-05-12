@@ -19,7 +19,7 @@ class Sidemenu extends Component {
                     <Image source={Icons.AppIcon} style={styles.IMG1} resizeMode="contain" />
                 </View>
                 <View style={styles.InnerView2}>
-                    <TouchableOpacity style={styles.CMNVIW}>
+                    <TouchableOpacity style={styles.CMNVIW} onPress={()=>this.props.navigation.navigate('ContactUs')}>
                         <View style={styles.VIW1}>
                             <Image source={Icons.contact} style={styles.CMNIMG} resizeMode="contain" />
                         </View>

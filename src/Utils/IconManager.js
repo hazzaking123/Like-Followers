@@ -8,7 +8,7 @@ module.exports = {
         star: require('../Icons/star.png'),
         ShareIcon: require('../Icons/ShareIcon.png'),
         refresh: require('../Icons/refresh.png'),
-        premium_quality: require('../Icons/premium-quality.png'),
+        premium_quality: require('../Icons/diamond.png'),
         comment: require('../Icons/comment.jpg'),
         Earn: require('../Icons/Earn.jpg'),
         purchase: require('../Icons/purchase.png'),
@@ -22,6 +22,13 @@ module.exports = {
         follow: require('../Icons/follow.png'),
         get_follower: require('../Icons/get_follower.png'),
         follower_list: require('../Icons/follower_list.png'),
+        Like_List: require('../Icons/Like_List.jpg'),
+        Video: require('../Icons/Video.png'),
+        CommentList: require('../Icons/CommentList.jpg'),
+        GetComments:require('../Icons/GetComments.png'),
+        right:require('../Icons/right.png'),
+        ShareList:require('../Icons/ShareList.jpg'),
+        Share1:require('../Icons/Share1.png')
     }
 
 

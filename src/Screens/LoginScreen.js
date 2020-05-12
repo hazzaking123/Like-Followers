@@ -103,22 +103,23 @@ export default class LoginScreen extends Component {
 
 
   GetOfficialDetails() {
-    let checkURl = /^(?!\s*$).+/
-    let url = this.state.TiktokUrl
-    if (checkURl.test(url.trim())) {
-      if (url.match(/www.tiktok.com/g)) {
-        this.setState({ type: "www", fetchInfo: true, visible: true })
-      }
-      else if (url.match(/vm.tiktok.com/g)) {
-        this.setState({ type: "vm", fetchInfo: true, visible: true })
-      }
-      else {
-        alert("invalid Url !!")
-      }
-    }
-    else {
-      this.setState({ borderWidth: 1 })
-    }
+    this.props.navigation.navigate("Home")
+    // let checkURl = /^(?!\s*$).+/
+    // let url = this.state.TiktokUrl
+    // if (checkURl.test(url.trim())) {
+    //   if (url.match(/www.tiktok.com/g)) {
+    //     this.setState({ type: "www", fetchInfo: true, visible: true })
+    //   }
+    //   else if (url.match(/vm.tiktok.com/g)) {
+    //     this.setState({ type: "vm", fetchInfo: true, visible: true })
+    //   }
+    //   else {
+    //     alert("invalid Url !!")
+    //   }
+    // }
+    // else {
+    //   this.setState({ borderWidth: 1 })
+    // }
 
   }
 

@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
     VIW11: { justifyContent: "center", height: "100%", width: "100%" },
     IMG2: { height: hp(4), width: hp(4), },
     IMG3: { height: hp(3), width: hp(3) },
-    IMG4: { height: hp(5), width: hp(5) },
+    IMG4: { height: hp(2.5), width: hp(2.5) },
+    IMG44: { height: hp(3), width: hp(3), top: hp(0.3) },
     IMG5: { height: hp(4), width: hp(4) },
     TXT4: { fontSize: hp(3), fontFamily: "LatoBlack", color: "white", left: hp(1) },
     TXT5: { fontSize: hp(3.5), fontFamily: "LatoBlack", color: "#E9ECF2" },
@@ -23,10 +24,10 @@ const styles = StyleSheet.create({
     VIW13: { height: "45%", justifyContent: "flex-start", padding: hp(2), flexDirection: "row" },
     VIW14: { height: "55%", justifyContent: "center", alignItems: "center" },
     TXT6: { fontFamily: "LatoBlack", fontSize: hp(3) },
-    VIW16: { height: hp(7), backgroundColor: "#FE2C55", borderRadius: hp(100), flexDirection: "row", padding: hp(1), elevation: 10 },
-    VIW17: { borderRadius: hp(100), height: hp(5), width: hp(5), justifyContent: "center", alignItems: "center" },
-    VIW18: { justifyContent: "center", height: "100%", paddingLeft: hp(1) },
-    VIW19: { justifyContent: "center", paddingRight: hp(2) }
+    VIW16: { height: hp(7), backgroundColor: "#FE2C55", borderRadius: hp(100), flexDirection: "row", padding: hp(1), elevation: 10, paddingRight: hp(2) },
+    VIW17: { borderRadius: hp(100), height: hp(5), width: hp(5), justifyContent: "center", alignItems: "center", borderWidth: hp(0.3), borderColor: "white" },
+    VIW18: { justifyContent: "center", height: "100%", paddingHorizontal: hp(1) },
+    VIW19: { justifyContent: "center", alignItems: "center", paddingLeft: hp(1) }
 })
 
 export default styles

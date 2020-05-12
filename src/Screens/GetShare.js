@@ -1,48 +1,57 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image, FlatList } from 'react-native';
-import styles from './styles/GetFollowerStyles';
+import styles from './styles/GetCommentsStyles';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import GetFollowerPop from '../Components/Popups/GetFollowerPop'
 import RequestSuccess from '../Components/Popups/RequestSuccess'
 import { Icons } from '../Utils/IconManager'
 import Header from '../Components/Header';
 
-export default class GetFollower extends Component {
+export default class GetShare extends Component {
     constructor(props) {
         super(props);
         this.state = {
             offers: [
                 {
-                    title: " Get 20 real followers in 60\n diamonds.",
-                    diamonds: 60
+                    title: " Get 20 real Share in 60\n diamonds.",
+                    diamonds: 60,
+                    cmtnm: 20
+
                 },
                 {
-                    title: " Get 40 real followers in 100\n diamonds.",
-                    diamonds: 900
+                    title: " Get 40 real Share in 100\n diamonds.",
+                    diamonds: 40,
+                    cmtnm: 100
                 },
                 {
-                    title: " Get 20 real followers in 60\n diamonds.",
-                    diamonds: 60
+                    title: " Get 80 real Share in 180\n diamonds.",
+                    diamonds: 180,
+                    cmtnm: 80
                 },
                 {
-                    title: " Get 40 real followers in 100\n diamonds.",
-                    diamonds: 100
+                    title: " Get 200 real Share in 400\n diamonds.",
+                    diamonds: 200,
+                    cmtnm: 200
                 },
                 {
-                    title: " Get 20 real followers in 60\n diamonds.",
-                    diamonds: 60
+                    title: " Get 20 real Share in 60\n diamonds.",
+                    diamonds: 60,
+                    cmtnm: 20
                 },
                 {
-                    title: " Get 40 real followers in 100\n diamonds.",
-                    diamonds: 100
+                    title: " Get 40 real Share in 100\n diamonds.",
+                    diamonds: 100,
+                    cmtnm: 20
                 },
                 {
-                    title: " Get 20 real followers in 60\n diamonds.",
-                    diamonds: 60
+                    title: " Get 20 real Share in 60\n diamonds.",
+                    diamonds: 60,
+                    cmtnm: 20
                 },
                 {
-                    title: " Get 40 real followers in 100\n diamonds.",
-                    diamonds: 100
+                    title: " Get 40 real share in 100\n diamonds.",
+                    diamonds: 100,
+                    cmtnm: 20
                 },
             ],
             Visi: false,
@@ -65,7 +74,7 @@ export default class GetFollower extends Component {
                     ClosePop={() => this.setState({ Visi1: false })}
                 />
 
-                <Header title={"Get Followers"} backPress={() => this.props.navigation.navigate("Follower")} />
+                <Header title={"Get Share"} backPress={() => this.props.navigation.navigate("Share")} />
 
                 <FlatList
                     data={this.state.offers}
@@ -82,15 +91,14 @@ export default class GetFollower extends Component {
                             <View style={styles.VIW14}>
                                 <TouchableOpacity style={[styles.VIW16]} onPress={() => this.setState({ Visi: true })}>
                                     <View style={styles.VIW17}>
-                                        <Image source={Icons.Group} style={styles.IMG4} resizeMode="contain" />
+                                        <Image source={Icons.Share1} style={styles.IMG44} resizeMode="contain" />
                                     </View>
                                     <View style={styles.VIW18}>
-                                        <Image source={Icons.premium_quality} style={styles.IMG5} resizeMode="contain" />
+                                        <Text style={styles.TXT4}>{"Get " + item.diamonds + " Share"}</Text>
                                     </View>
                                     <View style={styles.VIW19}>
-                                        <Text style={styles.TXT4}>{item.diamonds}</Text>
+                                        <Image source={Icons.right} style={styles.IMG4} resizeMode="contain"/>
                                     </View>
-
                                 </TouchableOpacity>
                             </View>
                         </View>

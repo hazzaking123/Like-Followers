@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { View, Text, StatusBar, Image, TouchableOpacity, TouchableHighlight, AsyncStorage } from 'react-native';
+import { View, Text, StatusBar, Image, TouchableOpacity, TouchableHighlight, AsyncStorage, BackHandler } from 'react-native';
 import styles from './styles/HomeScreenStyles'
 import { Icons } from '../Utils/IconManager';
 import SplashScreen from 'react-native-splash-screen'
 import { Services } from '../Configurations/Api/Connections';
 import { custom_number_format } from '../Utils/functions'
 
-let AllData = null
-let OtherData = null
+let AllData = ''
+let OtherData = ''
 
 export default class Homescreen extends Component {
   constructor(props) {
@@ -17,13 +17,16 @@ export default class Homescreen extends Component {
   }
   async UNSAFE_componentWillMount() {
     SplashScreen.hide()
-    await AsyncStorage.getItem("UserNaData", (err, res) => {
-      AllData = JSON.parse(res)
+    BackHandler.addEventListener('hardwareBackPress',()=>{
+      return true
     })
-    Services.setting({ user_id: AllData.userId }).then((res) => {
-      OtherData = res.setting
-      this.setState({})
-    })
+    // await AsyncStorage.getItem("UserNaData", (err, res) => {
+    //   AllData = JSON.parse(res)
+    // })
+    // Services.setting({ user_id: AllData.userId }).then((res) => {
+    //   OtherData = res.setting
+    //   this.setState({})
+    // })
 
   }
 
@@ -51,7 +54,8 @@ export default class Homescreen extends Component {
                     <Image source={Icons.premium_quality} style={styles.IMG3} resizeMode="contain" />
                   </View>
                   <View style={styles.VIW11}>
-                    <Text style={styles.TXT4}>{OtherData.coin}</Text>
+                    {/* <Text style={styles.TXT4}>{OtherData.coin}</Text> */}
+                    <Text style={styles.TXT4}>{1000}</Text>
                   </View>
                 </View>
               </View>
@@ -61,10 +65,12 @@ export default class Homescreen extends Component {
 
           <View style={styles.VIW2}>
             <View style={styles.VIW4}>
-              <Image source={{ uri: AllData.coversMedium[0] }} style={styles.IMG1} />
+              {/* <Image source={{ uri: AllData.coversMedium[0] }} style={styles.IMG1} /> */}
             </View>
             <View style={styles.VIW5}>
-              <Text style={styles.TXT1}>{AllData.nickName}</Text>
+              {/* <Text style={styles.TXT1}>{AllData.nickName}</Text> */}
+              <Text style={styles.TXT1}>{"Nirav Bhesaniya"}</Text>
+
             </View>
             <View style={styles.VIW6}>
               <View style={styles.CMNVIW}>
@@ -84,19 +90,20 @@ export default class Homescreen extends Component {
 
           <View style={styles.VIW3}>
             <View style={styles.VIW12}>
-              <TouchableOpacity onPress={() => this.props.navigation.navigate("Follower", { data: OtherData.follower_coin })}>
+              <TouchableOpacity onPress={() => this.props.navigation.navigate("Follower")}>
+                {/* <TouchableOpacity onPress={() => this.props.navigation.navigate("Follower", { data: OtherData.follower_coin })}> */}
                 <Image style={styles.IMG4} source={Icons.AddFL} />
                 <Text style={styles.TXT5}>Follower</Text>
               </TouchableOpacity>
             </View>
             <View style={styles.VIW12}>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => this.props.navigation.navigate("Likes")}>
                 <Image style={styles.IMG4} source={Icons.Like} />
                 <Text style={styles.TXT5}>Like</Text>
               </TouchableOpacity>
             </View>
             <View style={styles.VIW12}>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => this.props.navigation.navigate("Comments")}>
                 <Image style={styles.IMG4} source={Icons.comment} />
                 <Text style={styles.TXT5}>Comment</Text>
               </TouchableOpacity>
@@ -107,20 +114,20 @@ export default class Homescreen extends Component {
 
           <View style={styles.VIW3}>
             <View style={styles.VIW12}>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => this.props.navigation.navigate("Share")}>
                 <Image style={styles.IMG4} source={Icons.shareHome} />
                 <Text style={styles.TXT5}>Share</Text>
               </TouchableOpacity>
             </View>
             <View style={styles.VIW12}>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => this.props.navigation.navigate("Follower")}>
                 <Image style={styles.IMG4} source={Icons.Earn} />
                 <Text style={styles.TXT5}>Earn</Text>
               </TouchableOpacity>
 
             </View>
             <View style={styles.VIW12}>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => this.props.navigation.navigate("Follower")}>
                 <Image style={styles.IMG4} source={Icons.purchase} />
                 <Text style={styles.TXT5}>Purchase Coins</Text>
               </TouchableOpacity>
