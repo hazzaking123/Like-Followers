@@ -50,7 +50,7 @@ export default class GetFollower extends Component {
         };
     }
     componentDidMount() {
-        console.log(this.props)
+   
     }
     render() {
         return (

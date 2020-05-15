@@ -59,7 +59,7 @@ export default class GetShare extends Component {
         };
     }
     componentDidMount() {
-        console.log(this.props)
+      
     }
     render() {
         return (

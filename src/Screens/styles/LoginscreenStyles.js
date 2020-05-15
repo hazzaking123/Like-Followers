@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     VIW1: { height: "43%", width: "100%", backgroundColor: "#FA647F", borderBottomLeftRadius: hp(100), borderBottomRightRadius: hp(100) },
     VIW2: { height: "43%", opacity: 0.5, justifyContent: "center", alignItems: "center", width: "100%", position: "absolute", backgroundColor: "#FE7E97", borderBottomLeftRadius: hp(100), borderBottomRightRadius: hp(100) },
     IMG1: { height: hp(14.53), width: hp(14.53), borderRadius: hp(0), position: "absolute", top: hp(20) },
-    VIW3: { height: "50%", width: "100%", justifyContent: "center", alignItems: "center", marginTop: hp(1.5) },
+    VIW3: { height: "47%", width: "100%", justifyContent: "center", alignItems: "center", marginTop: hp(1.5) },
     VIW4: { justifyContent: "center", alignItems: "center", flexDirection: "row" },
     VIW5: { justifyContent: "center", alignItems: "center", marginVertical: hp(3) },
     VIW6: { justifyContent: "center", alignItems: "center" },

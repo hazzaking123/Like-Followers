@@ -12,8 +12,7 @@ export default class Share extends Component {
         };
     }
     UNSAFE_componentWillMount() {
-        console.log(this.props)
-      //  this.setState({ data: this.props.navigation.getParam('data') })
+       //  this.setState({ data: this.props.navigation.getParam('data') })
     }
     render() {
         return (

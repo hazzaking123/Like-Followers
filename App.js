@@ -17,6 +17,7 @@ import GetComments from './src/Screens/GetComments';
 import Share from './src/Screens/Share';
 import GetShare from './src/Screens/GetShare';
 import ContactUs from './src/Screens/ContactUs';
+import OnetimeLogin from './src/Screens/OnetimeLogin';
 
 
 
@@ -33,7 +34,7 @@ const DrawerScreens = createDrawerNavigator(
     Comments: { screen: Comments },
     Share: { screen: Share },
     GetShare: { screen: GetShare },
-    ContactUs: { screen: ContactUs }
+    ContactUs: { screen: ContactUs },    
   },
   {
     contentComponent: Sidemenu,
@@ -44,6 +45,7 @@ const DrawerScreens = createDrawerNavigator(
 
 const SwitchedScreens = createSwitchNavigator({
   SplashScreen: { screen: SplashScreen },
+  OnetimeLogin: { screen: OnetimeLogin },
   Login: LoginScreen,
   Sidemenu: DrawerScreens
 }, {

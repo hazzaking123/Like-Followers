@@ -5,19 +5,22 @@ import styles from './styles/LoginscreenStyles'
 import { Icons } from "../Utils/IconManager";
 import Preloader from '../Components/Preloader';
 import { WebView } from 'react-native-webview';
-import { Services } from '../Configurations/Api/Connections';
 
 
-const WWW_INJECTED_JAVASCRIPT =
-  `setTimeout(() =>{window.ReactNativeWebView.postMessage(
-    document.getElementById("__NEXT_DATA__").innerHTML  
-   )},5000)`;
 
-const VM_INJECTED_JAVASCRIPT =
-  `setTimeout(() =>{window.ReactNativeWebView.postMessage(
-    JSON.stringify(__INIT_PROPS__)  
- )},5000)`;
+// const WWW_INJECTED_JAVASCRIPT =
+//   `setTimeout(() =>{window.ReactNativeWebView.postMessage(
+//     document.getElementById("__NEXT_DATA__").innerHTML  
+//    )},1000)`;
 
+// const VM_INJECTED_JAVASCRIPT =
+//   `setTimeout(() =>{window.ReactNativeWebView.postMessage(
+//     JSON.stringify(__INIT_PROPS__)  
+//  )},1000)`;
+
+const WWW_INJECTED_JAVASCRIPT = 'window.ReactNativeWebView.postMessage(document.getElementById("__NEXT_DATA__").innerHTML)'
+
+const VM_INJECTED_JAVASCRIPT = 'window.ReactNativeWebView.postMessage(JSON.stringify(__INIT_PROPS__))'
 
 export default class LoginScreen extends Component {
   constructor(props) {
@@ -48,7 +51,9 @@ export default class LoginScreen extends Component {
 
         <View style={styles.VIW2} />
 
-        <View style={{ height: "7%" }} >
+        <Image source={Icons.AppIcon} style={styles.IMG1} resizeMode="contain" />
+
+        <View style={{ height: "10%" }} >
           {
             this.state.fetchInfo ?
               <WebView
@@ -68,7 +73,7 @@ export default class LoginScreen extends Component {
 
         </View>
 
-        <Image source={Icons.AppIcon} style={styles.IMG1} resizeMode="contain" />
+
 
         <View style={styles.VIW3}>
           <View style={styles.VIW4}>
@@ -103,31 +108,30 @@ export default class LoginScreen extends Component {
 
 
   GetOfficialDetails() {
-    this.props.navigation.navigate("Home")
-    // let checkURl = /^(?!\s*$).+/
-    // let url = this.state.TiktokUrl
-    // if (checkURl.test(url.trim())) {
-    //   if (url.match(/www.tiktok.com/g)) {
-    //     this.setState({ type: "www", fetchInfo: true, visible: true })
-    //   }
-    //   else if (url.match(/vm.tiktok.com/g)) {
-    //     this.setState({ type: "vm", fetchInfo: true, visible: true })
-    //   }
-    //   else {
-    //     alert("invalid Url !!")
-    //   }
-    // }
-    // else {
-    //   this.setState({ borderWidth: 1 })
-    // }
-
+    let checkURl = /^(?!\s*$).+/
+    let url = this.state.TiktokUrl
+    if (checkURl.test(url.trim())) {
+      if (url.match(/www.tiktok.com/g)) {
+        this.setState({ type: "www", fetchInfo: true, visible: true })
+      }
+      else if (url.match(/vm.tiktok.com/g)) {
+        this.setState({ type: "vm", fetchInfo: true, visible: true })
+      }
+      else {
+        alert("invalid Url !!")
+      }
+    }
+    else {
+      this.setState({ borderWidth: 1 })
+    }
   }
 
 
   WWW_getData = (data) => {
     let DATA = JSON.parse(data)
     let FinalData = DATA.props.pageProps.userData
-    this.CheckLogin(FinalData)
+    this.props.navigation.navigate("OnetimeLogin", { data: FinalData, Tik: this.state.TiktokUrl })
+    // this.CheckLogin(FinalData)
   }
 
   VM_getData = (data) => {
@@ -139,39 +143,10 @@ export default class LoginScreen extends Component {
 
     let FinalData = result[0][1].userData
 
-    this.CheckLogin(FinalData)
+    this.props.navigation.navigate("OnetimeLogin", { data: FinalData, Tik: this.state.TiktokUrl })
+    // this.CheckLogin(FinalData)
   }
 
-  CheckLogin(data) {
-
-    let FinalData=data
-
-    let param = {
-      user_id: FinalData.userId,
-      username: FinalData.nickName,
-      profile: FinalData.coversMedium[0],
-      fullname: FinalData.uniqueId,
-      user_link: this.state.TiktokUrl,
-      account_type: FinalData.isSecret ? "public" : "private",
-      device: Platform.OS === "android" ? "android" : "ios"
-    }
-
-
-    Services.login(param).then(async (res) => {
-      if (res.user.success == "true") {
-        FinalData["Coins"] = res.user
-        await AsyncStorage.setItem("UserNaData", JSON.stringify(FinalData))
-        this.setState({ visible: false, fetchInfo: false })
-        this.props.navigation.navigate("Home")
-      }
-      else {
-        this.setState({ visible: false, fetchInfo: false })
-        alert("Error!")
-      }
-    })
-  }
-
-  
 }
 
 

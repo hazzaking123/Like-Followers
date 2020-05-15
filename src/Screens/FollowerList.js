@@ -54,7 +54,7 @@ export default class FollowerList extends Component {
         };
     }
     componentDidMount() {
-        console.log(this.props)
+
     }
     render() {
         return (
